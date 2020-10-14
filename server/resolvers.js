@@ -111,19 +111,28 @@ module.exports = {
       if (args.attackType === "fast") {
         for (const attack of data.attacks.fast) {
           if (attack.name === args.name) {
-            let index = data.attacks.fast.indexOf(attack);
+            const index = data.attacks.fast.indexOf(attack);
             data.attacks.fast.splice(index, 1);
           }
         }
       } else if (args.attackType === "special") {
         for (const attack of data.attacks.special) {
           if (attack.name === args.name) {
-            let index = data.attacks.special.indexOf(attack);
+            const index = data.attacks.special.indexOf(attack);
             data.attacks.special.splice(index, 1);
           }
         }
       }
       return data.attacks;
+    },
+    DeletePokemon: (parents, args) => {
+      for (const pokemon of data.pokemon) {
+        if (pokemon.name === args.name) {
+          const index = data.pokemon.indexOf(pokemon);
+          data.pokemon.splice(index, 1);
+        }
+      }
+      return data.pokemon;
     },
   },
 };
