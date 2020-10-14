@@ -43,9 +43,9 @@ const typeDefs = gql`
   }
 
   type Attack {
-    name: String!
-    type: String!
-    damage: Int!
+    name: String
+    type: String
+    damage: Int
   }
 
   type Evolution {
@@ -59,6 +59,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    Attacks: Attacks
     Types: [String!]
     Pokemons: [Pokemon]
     Pokemon(name: String!): Pokemon
