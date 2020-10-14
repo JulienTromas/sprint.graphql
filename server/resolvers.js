@@ -15,10 +15,27 @@ module.exports = {
     Types: () => {
       return data.types;
     },
-    type: (parents, args) => {
+    GetPokemonByType: (parents, args) => {
       const output = data.pokemon.filter((pokemon) => {
         return pokemon.types.includes(args.name);
       });
+      return output;
+    },
+    GetPokemonByAttack: (parents, args) => {
+      const output = [];
+
+      for (const pokemon of data.pokemon) {
+        for (const special of pokemon.attacks.special) {
+          if (special.name === args.name) {
+            output.push(pokemon);
+          }
+        }
+        for (const fast of pokemon.attacks.fast) {
+          if (fast.name === args.name) {
+            output.push(pokemon);
+          }
+        }
+      }
       return output;
     },
     Attacks: () => {
