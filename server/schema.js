@@ -5,7 +5,7 @@ const typeDefs = gql`
   # The schema should model the full data object available!
 
   type Pokemon {
-    id: String
+    id: String!
     name: String!
     classification: String!
     types: [String!]
@@ -60,9 +60,10 @@ const typeDefs = gql`
 
   type Query {
     Attacks: Attacks
+    Attack(type: String): [Attack]
     Types: [String!]
     Pokemons: [Pokemon]
-    Pokemon(name: String!): Pokemon
+    Pokemon(id: String, name: String): Pokemon
   }
 `;
 
