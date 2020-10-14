@@ -15,6 +15,12 @@ module.exports = {
     Types: () => {
       return data.types;
     },
+    type: (parents, args) => {
+      const output = data.pokemon.filter((pokemon) => {
+        return pokemon.types.includes(args.name);
+      });
+      return output;
+    },
     Attacks: () => {
       return data.attacks;
     },

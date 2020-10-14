@@ -62,6 +62,7 @@ const typeDefs = gql`
     Attacks: Attacks
     Attack(type: String): [Attack]
     Types: [String!]
+    type(name: String): [Pokemon]
     Pokemons: [Pokemon]
     Pokemon(id: String, name: String): Pokemon
   }
