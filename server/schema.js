@@ -72,9 +72,20 @@ const typeDefs = gql`
     AddType(name: String): [String!]
     EditType(edit: String, newName: String): [String!]
     DeleteType(name: String): [String!]
-    #AddAttack
-    #EditAttack
-    #DeleteAttack
+    AddAttack(
+      attackType: String
+      name: String
+      type: String
+      damage: Int
+    ): Attacks
+    EditAttack(
+      attackType: String
+      attackToEdit: String
+      name: String
+      type: String
+      damage: Int
+    ): Attacks
+    DeleteAttack(attackType: String, name: String): Attacks
     #AddPokemon
     #EditPokemon
     #DeletePokemon

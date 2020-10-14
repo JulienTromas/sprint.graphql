@@ -70,5 +70,60 @@ module.exports = {
       }
       return data.types;
     },
+    AddAttack: (parents, args) => {
+      if (args.attackType === "fast") {
+        data.attacks.fast.push({
+          name: args.name,
+          type: args.type,
+          damage: args.damage,
+        });
+      } else if (args.attackType === "special") {
+        data.attacks.special.push({
+          name: args.name,
+          type: args.type,
+          damage: args.damage,
+        });
+        return data.attacks;
+      }
+    },
+    EditAttack: (parents, args) => {
+      if (args.attackType === "fast") {
+        console.log("fast");
+        for (const attack of data.attacks.fast) {
+          if (attack.name === args.attackToEdit) {
+            attack.name = args.name;
+            attack.type = args.type;
+            attack.damage = args.damage;
+          }
+        }
+      } else if (args.attackType === "special") {
+        for (const attack of data.attacks.special) {
+          if (attack.name === args.attackToEdit) {
+            attack.name = args.name;
+            attack.type = args.type;
+            attack.damage = args.damage;
+          }
+        }
+      }
+      return data.attacks;
+    },
+    DeleteAttack: (parents, args) => {
+      if (args.attackType === "fast") {
+        for (const attack of data.attacks.fast) {
+          if (attack.name === args.name) {
+            let index = data.attacks.fast.indexOf(attack);
+            data.attacks.fast.splice(index, 1);
+          }
+        }
+      } else if (args.attackType === "special") {
+        for (const attack of data.attacks.special) {
+          if (attack.name === args.name) {
+            let index = data.attacks.special.indexOf(attack);
+            data.attacks.special.splice(index, 1);
+          }
+        }
+      }
+      return data.attacks;
+    },
   },
 };
