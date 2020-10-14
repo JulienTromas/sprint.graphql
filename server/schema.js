@@ -16,6 +16,7 @@ const typeDefs = gql`
     fleeRate: Float
     evolutionRequirements: EvolutionRequirements!
     evolutions: [Evolution]
+    previousEvolutions: [PreviousEvolution]
     maxCP: Int
     maxHP: Int
     attacks: Attacks!
@@ -52,7 +53,13 @@ const typeDefs = gql`
     name: String!
   }
 
+  type PreviousEvolution {
+    id: Int!
+    name: String!
+  }
+
   type Query {
+    Types: [String!]
     Pokemons: [Pokemon]
     Pokemon(name: String!): Pokemon
   }
