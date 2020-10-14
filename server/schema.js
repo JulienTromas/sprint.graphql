@@ -86,8 +86,8 @@ const typeDefs = gql`
       damage: Int
     ): Attacks
     DeleteAttack(attackType: String, name: String): Attacks
-    #region AddPokemon
-    #EditPokemon
+    AddPokemon(id: String, name: String): [Pokemon]
+    EditPokemon(name: String, newName: String): [Pokemon]
     DeletePokemon(name: String): [Pokemon]
   }
 `;

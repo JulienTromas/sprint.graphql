@@ -134,5 +134,21 @@ module.exports = {
       }
       return data.pokemon;
     },
+    EditPokemon: (parents, args) => {
+      for (const pokemon of data.pokemon) {
+        if (pokemon.name === args.name) {
+          pokemon.name = args.newName;
+        }
+      }
+      return data.pokemon;
+    },
+    AddPokemon: (parents, args) => {
+      const newPokemon = {
+        id: args.id,
+        name: args.name,
+      };
+      data.pokemon.push(newPokemon);
+      return data.pokemon;
+    },
   },
 };
