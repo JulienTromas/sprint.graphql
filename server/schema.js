@@ -67,6 +67,18 @@ const typeDefs = gql`
     Pokemons: [Pokemon]
     Pokemon(id: String, name: String): Pokemon
   }
+
+  type Mutation {
+    AddType(name: String): [String!]
+    EditType(edit: String, newName: String): [String!]
+    DeleteType(name: String): [String!]
+    #AddAttack
+    #EditAttack
+    #DeleteAttack
+    #AddPokemon
+    #EditPokemon
+    #DeletePokemon
+  }
 `;
 
 module.exports = typeDefs;

@@ -49,4 +49,26 @@ module.exports = {
       }
     },
   },
+  Mutation: {
+    AddType: (parents, args) => {
+      data.types.push(args.name);
+      return data.types;
+    },
+    EditType: (parents, args) => {
+      for (let i = 0; i <= data.types.length - 1; i++) {
+        if (data.types[i] === args.edit) {
+          data.types[i] = args.newName;
+        }
+      }
+      return data.types;
+    },
+    DeleteType: (parents, args) => {
+      for (let i = 0; i <= data.types.length - 1; i++) {
+        if (data.types[i] === args.name) {
+          data.types.splice(i, 1);
+        }
+      }
+      return data.types;
+    },
+  },
 };
